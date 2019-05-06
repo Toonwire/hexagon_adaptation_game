@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" type="image/svg" href="icon_hexagons.png">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Local hex test</title>
+	</head>
+
+<body onresize="onResize()">
+
+	<div class="split-page">
+		<div class="half">
+			<canvas id="canvas">
+			Your browser does not support the HTML5 canvas tag.
+			</canvas>
+
+			<div id="panelboard">
+				<br>
+				<br>
+				<button type="button" id="btn_switch_ori" disabled onclick="switchOrientation()">Switch Orientation</button>
+				<br>
+				<br>
+				<div>
+					<input type="file" multiple class="color-primary-tint" id="upload">
+				</div>
+
+				<br>
+				<div>
+					<button type="button" id="btn_compile" disabled="true" onclick="setupGame()">Compile uploaded files</button>
+				</div>
+				
+				<br>
+				<div>
+					<button type="button" id="btn_show_editor" onclick="showEditor()">Show editor</button>
+				</div>
+				
+				<br>
+				<div>
+					<button type="button" id="btn_start" disabled="true" onclick="startGame()">Play</button>
+					<button type="button" id="btn_stop" disabled="true" onclick="stopGame()">Stop</button>
+					<button type="button" id="btn_step" disabled="true" onclick="playStep()">Step</button>
+				</div>
+			</div>
+		</div>
+		<div class="half">
+			<table id="scoreboard">
+				<tr>	
+				    <th>Name</th>
+				    <th>Hexagons</th>
+				    <th>Resources</th>
+				    <th>Exceptions</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="editor-window">
+		<div id="editor">function turn(myCells) { // <-- DO NOT EDIT; code will not compile
+	// your code goes here
+}</div>
+	<div style="width:50%; height: 100%; float: left;">
+		<button type="button" id="btn_hide_editor" onclick="hideEditor()">Hide Editor</button>
+	</div>
+	</div>
+
+
+	<script type="text/javascript" src="custom.js"></script>
+
+	<!-- EDITOR STUFF -->
+	<script src="ace_editor_src/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="ace_editor_src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
+	<script src="ace_editor_src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var editor = ace.edit("editor");
+		editor.setTheme("ace/theme/twilight");
+		var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+		editor.session.setMode(new JavaScriptMode());
+	</script>
+
+    
+</body>
+
+</html>
+
