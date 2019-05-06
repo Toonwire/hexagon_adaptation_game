@@ -319,7 +319,15 @@ function isGameOver() {
 	for (var i = 1; i < hexagons.length; i++) {
 		if (hexagons[0].ownerId !== hexagons[i].ownerId) return false;
 	}
-	console.log("Game Over: Winner is Player " + hexagons[0].ownerId);
+	
+	var winner = "";
+	for (var i = 0; i < players.length; i++) {
+		if (players[i].id === hexagons[0].ownerId) {
+			winner = players[i].algo.name;
+			break;
+		}
+	}
+	console.log("Game Over: Winner is " + winner);
 	return true;
 }
 
